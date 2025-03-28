@@ -1,6 +1,9 @@
 package in.vk.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +30,13 @@ public class MyController {
 		
 		Student student =  studentService.addStudent(std);
 		 return student;
+	}
+	
+	@GetMapping("/student")
+	public List<Student> getAllStudents(){
+		List<Student> students_list = studentService.getAllStudents();
+		
+		return students_list;
 	}
 
 }
