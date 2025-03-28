@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.vk.beans.Student;
@@ -37,6 +38,20 @@ public class MyController {
 		List<Student> students_list = studentService.getAllStudents();
 		
 		return students_list;
+	}
+	
+	@GetMapping("/student/{id}")
+	public Student getStudent(@PathVariable int id) {
+		Student std = studentService.getstudent(id);
+		return std;
+		
+	}
+	
+	@PutMapping("/student")
+	public Student updateStudent(@RequestBody Student std) {
+		Student student = studentService.updateStudent(std);
+		return student;
+		
 	}
 
 }

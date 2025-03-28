@@ -8,5 +8,9 @@ public interface StudentService {
 	public Student addStudent(Student std);
 	
 	public List<Student> getAllStudents();
+	
+	public Student getstudent(int id);
+	
+	public Student updateStudent(Student std);
 
 }
